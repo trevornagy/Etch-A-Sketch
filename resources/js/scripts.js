@@ -3,34 +3,57 @@ var $grid = $('<div id = "grid"></div>');
 
 function gridCreate(userSize)
 {
-	if ($grid.hasClass('onPage'))
+	$content.append($grid);	
+	for (var rows = 0; rows < userSize; rows++) 
 	{
-		$grid.remove();	
-	}
-	else
-	{
-		$content.append($grid);	
-		$grid.addClass('onPage');
+		var row = '<div id = "row">';
 
-		for (var rows = 0; rows < userSize; rows++) 
+		for (var columns = 0; columns < userSize; columns++) 
 		{
-			var row = '<div>';
-
-			for (var columns = 0; columns < userSize; columns++) 
-			{
-				row += '<div class = "square"></div>';	
-			}
-
-			row += '</div>';
-			$grid.append(row);		
+			row += '<div  id = "square" class = "square"></div>';	
 		}
+
+		row += '</div>';
+		$grid.append(row);		
 	}
 }
 
 var getDimensions = $('#OptionsSubmit').on('click', function()
 {
+
 	var dimensions = $('#dimensions').val();
 
+	if (checkExistingGrid() == true)
+	{
+		for (var i = 0 ; i < $('.square').length; i++) 
+		{
+		$('.square').remove();
+		}
+		checkDimensions(dimensions);
+	}
+	else
+	{
+		checkDimensions(dimensions);
+	}
+
+	// Makes it so page doesn't refresh
+	return false;	
+});	
+
+function checkExistingGrid()
+{
+	if ($('#square').hasClass('square'))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+function checkDimensions(dimensions)
+{
 	if (dimensions <= 1)
 	{
 		dimensions = 2;
@@ -44,9 +67,7 @@ var getDimensions = $('#OptionsSubmit').on('click', function()
 	{
 		gridCreate(dimensions);
 	}	
-	// Makes it so page doesn't refresh
-	return false;	
-});	
+}
 
 $(document).ready(function(){
 
