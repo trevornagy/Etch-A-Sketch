@@ -1,3 +1,13 @@
+html, body{ 
+	/* Allows website to use 100% of screen */
+	min-width: 100%;
+	padding: 0;
+	margin: 0;
+
+	font-family: arial,sans-serif;
+	font-size: 13px;
+}
+
 #header {
 	text-align: center;
 }
@@ -14,7 +24,11 @@
 
     height: 2.5rem;
     width: 2.5rem;
-    background-color: white;
+    background-color: #FFFFFF;
 
-    border: 1px solid black;
+    /* border: 1px solid white; */
+    border-left:solid red 3px;
+    border-right:solid violet 4px;
+    border-top:solid blue 4px;
+    border-bottom:solid green 4px;
 }	

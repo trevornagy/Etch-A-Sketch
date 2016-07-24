@@ -15,8 +15,15 @@
 			<form class = "options">
 				<strong><p>Dimensions: </p></strong><input type="text" id="dimensions" value="16">	
 				<div class = "optionButtons">
-					<button id="OptionsSubmit">Submit</button>
-					<button id="OptionsReset">Reset</button>
+					<button id="OptionsSubmit" type="button">Submit</button>
+					 <select id="colSelection" name="colSelection">
+					 	<optgroup label = "Choose a colour:">
+					 	<option value="black" id="colBlack">Black</option>
+					  	<option value="red" id="colRed">Red</option>
+					  	<option value="blue" id="colBlue">Blue</option>
+					  	<option value="random" id="colRandom">Random</option>
+					</select> 
+					<button id="OptionsReset" type="button">Reset</button>
 				</div>
 			</form>
 		</div>
